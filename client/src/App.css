@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+html, body{
+    background-color: black;
+    background-image: linear-gradient(black, white);
+    font-family: 'Marcellus SC', serif;
+}
+
+h1{
+    color: white;
+    font-family: 'Marcellus SC', serif;
+    border: white solid 1px;
+    width: 40%;
+    margin: auto;
+    border-radius: 60px 5px;
+}
+
+p{
+    padding: 2px;
+    margin: 0;
+    color: rgb(24, 34, 34);
+}
+
+button{
+    margin: 10px;
+    background-color: rgb(28, 43, 43);
+    color: white;
+    border-radius: 10px 5px;
+    padding: 5px;
+    font-weight: bold;
+}
+
+input{
+    border-radius: 10px;
+}
+.contentContainer{
+    margin: 70px auto;
+    height: auto;
+    width: 80vw;
+    display: grid;
+    grid-template-columns: repeat(4, 20%);
+    justify-content: center;
+    grid-gap: 20px;
+}
+
+.mainContainer{
+    text-align: center;
+    height: 130vh;
+    margin: 0;
+    padding: 0;
+}
+
+.inputs{
+    width: 300px;
+    height: 250px;
+    margin: 40px auto;
+    padding: 0;
+    background-color: #558B2F;
+    box-shadow: rgb(48, 87, 33) 10px 10px 10px;
+    border-radius: 10px;
+}
+
+.gridItem{
+    background-color: #8BC34A;
+    border-radius: 55px 20px;
+    margin: 5px;
+    padding-top: 20px;
+    box-shadow: rgb(63, 92, 45) 10px 10px 10px;
+    font-weight: lighter;
+    color: rgb(28, 43, 43);
+}
