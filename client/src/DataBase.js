@@ -20,7 +20,6 @@ class DataBase extends Component {
   }
 
   handleSubmit = (inputData) => {
-      console.log(inputData)
     this.setState(prevState => {
       return {
         data: [inputData, ...prevState.data]
