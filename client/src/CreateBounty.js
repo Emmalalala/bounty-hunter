@@ -22,9 +22,12 @@ class CreateBounty extends Component {
       bountyAmount: "",
       type: ""
     });
+    if(!data._id){
     this.props.onSubmit(data);
-  };
-
+  }else{
+    this.props.handleUpdate(data)
+  }
+  }
   // handleUpdate = e => {
   //   const { name, value } = e.target;
   //   this.setState({ [name]: value });

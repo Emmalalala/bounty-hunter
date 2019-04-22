@@ -1,56 +1,28 @@
 const uuid = require('uuid/v4')
 const express = require('express')
 const bountyRouter = express.Router();
-
-
-// FAKE DATABASE  
-let bounty = [
-    {
-        firstName: 'Rachel',
-        lastName: 'Bruen',
-        living: true,
-        bountyAmount: 100,
-        type: 'Sith',
-        _id: uuid()
-    },
-    {
-        firstName: 'Liz',
-        lastName: 'Telm',
-        living: true,
-        bountyAmount: 1000,
-        type: 'Jedi',
-        _id: uuid()
-    },
-    {
-        firstName: 'Croft',
-        lastName: 'Crosh',
-        living: true,
-        bountyAmount: 920,
-        type: 'Jedi',
-        _id: uuid()
-    },
-    {
-        firstName: 'Commi',
-        lastName: 'Paz',
-        living: true,
-        bountyAmount: 560,
-        type: 'Sith',
-        _id: uuid()
-    }
-]
+const Bounty = require('../models/bounty.js') 
 
 // GET ALL and POST
 bountyRouter.route('/')
 .get((req, res, next) => {
-    res.status(200);
-    res.send(bounty)
+   Bounty.find((err, bounty) => {
+       if(err){
+           res.status(500);
+           return next(err)
+       }
+       return res.status(200).send(bounty)
+   })
 })
 .post((req, res, next) => {
-    const newBounty = req.body
-    newBounty._id = uuid();
-    bounty.push(newBounty)
-    res.status(201)
-    res.send(bounty)
+    const newBounty = new Bounty(req.body)
+    newBounty.save((err, newSavedBounty) => {
+        if(err){
+            res.status(500)
+            return next(err)
+        }
+        return res.status(201).send(newSavedBounty)
+    })
 })
 
 // DELETE - delete one

@@ -25,7 +25,6 @@ class StateProvider extends Component {
 
   handleUpdate = (e, data, i) => {
     e.preventDefault();
-    console.log(data[i]._id)
     this.setState({
       firstName: data[i].firstName,
       lastName: data[i].lastName,
